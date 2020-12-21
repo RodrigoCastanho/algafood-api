@@ -26,17 +26,16 @@ import lombok.EqualsAndHashCode;
 @Entity
 public class Cozinha {
 	
-	@NotNull(groups = Groups.CozinhaId.class)
+//	@NotNull(groups = Groups.CozinhaId.class)
 	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
 	private Long id;
+	
 	@NotBlank
 	@Column(nullable = false)
 	private String nome;	
 	
-	@JsonIgnore
 	@OneToMany(mappedBy = "cozinha")
 	private List<Restaurante> restaurantes = new ArrayList<>();
 	
