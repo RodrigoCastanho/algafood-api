@@ -2,7 +2,6 @@ package com.algaworks.algafood.domain.model;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -122,6 +121,38 @@ public class Restaurante {
 	public boolean adicionarResponsavel(Usuario usuario) {
 	    return getResponsaveis().add(usuario);
 	}
+	
+	public boolean isAberto() {
+	    return this.aberto;
+	}
+
+	public boolean isFechado() {
+	    return !isAberto();
+	}
+
+	public boolean isInativo() {
+	    return !isAtivo();
+	}
+
+	public boolean isAtivo() {
+	    return this.ativo;
+	}
+
+	public boolean aberturaPermitida() {
+	    return isAtivo() && isFechado();
+	}
+
+	public boolean ativacaoPermitida() {
+	    return isInativo();
+	}
+
+	public boolean inativacaoPermitida() {
+	    return isAtivo();
+	}
+
+	public boolean fechamentoPermitido() {
+	    return isAberto();
+	} 
 	
 	
 }

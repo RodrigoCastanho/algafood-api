@@ -1,10 +1,7 @@
 package com.algaworks.algafood.domain.model;
 
-import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -50,12 +47,16 @@ public class Usuario {
 	   inverseJoinColumns = @JoinColumn(name = "grupo_id"))
 	private Set<Grupo> grupos = new HashSet<>();
 	
-	public boolean senhaCoincideCom(String senha) {
-	    return getSenha().equals(senha);
-	}
-
-	public boolean senhaNaoCoincideCom(String senha) {
-	    return !senhaCoincideCom(senha);
+//	public boolean senhaCoincideCom(String senha) {
+//	    return getSenha().equals(senha);
+//	}
+//
+//	public boolean senhaNaoCoincideCom(String senha) {
+//	    return !senhaCoincideCom(senha);
+//	}
+	
+	public boolean isNovo() {
+	    return getId() == null;
 	}
 	
 	public boolean adicionarGrupo(Grupo grupo) {
